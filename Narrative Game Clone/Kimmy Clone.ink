@@ -1,3 +1,12 @@
+VAR money = 0.25
+VAR rscore = 0
+VAR ropec = 0.04
+VAR frisbeec = 0.05
+VAR dicec = 0.04
+VAR ballc = 0.03
+VAR chalkc = 0.06
+VAR pencilandpaper = 0.03
+
 Returning home after picking up Kimmy, you converse with your mother
 
 + [Talk to Mom]
@@ -59,23 +68,52 @@ You think about where to go next
 ->home
 + [Go to Kimmy's house]
 -> Khouse
-+ [go downtown]
++ [Go downtown]
 -> downtown
-+ [go to playground]
++ [Go to playground]
 -> playground
 
 = Khouse
 You are standing outside Kimmy's house.
 
-+ {not store} [go to store]
++ [Go to store]
 -> store
-+ [Talk to Donna]
++ {not success}[Talk to Donna]
 -> donna
++ [Back to map]
+-> choices
 
 =store
-You enter the store and see a wonderful selection of toys
-+ [Speak to the clerk]
+The store has a wonderful selection of toys
+Money = ${money}
+{rope == 0:Rope = ${ropec}}
+{frisbee == 0:Frisbee = ${frisbeec}}
+{dice == 0:Dice = ${dicec}}
+{ball == 0:Ball = ${ballc}}
+{chalk == 0:Chalk = ${chalkc}}
+
+
+
++ {not clerk}[Speak to the clerk]
 ->clerk
+
++ {not rope}[buy rope]
+-> rope
+
++ {not frisbee}[buy frisbee]
+-> frisbee
+
++ {not dice}[buy dice]
+-> dice
+
++ {not ball}[buy ball]
+-> ball
+
++ {not chalk}[buy chalk]
+-> chalk
+
++ [leave]
+-> leavedean
 
 =clerk
 Dean:			Hey, Kid.
@@ -93,14 +131,42 @@ Dean:			They do, Kimmy, they do. I make sweaters, dresses, hats--you name it.
 Dana:			You should sell your clothes at Jordan Marsh! That’s where I always find the nicest clothes.
 Dean:			Hah! That’s a long ways off for me. But maybe someday… anyways, what can I get for ya?
 
-+ [buy rope]
--> rope
+->store
 
 =rope
-you bought the rope
+You bought the rope
 
-+ [leave]
--> leavedean
+~money -= ropec
+
+-> store
+
+=frisbee
+You bought the frisbee
+
+~money -= frisbeec
+
+-> store
+
+=dice
+You bought the dice
+
+~money -= dicec
+
+-> store
+
+=ball
+You bought the ball
+
+~money -= ballc
+
+-> store
+
+=chalk
+You bought the chalk
+
+~money -= chalkc
+
+-> store
 
 =leavedean
 
@@ -142,16 +208,134 @@ Dana:			It’s ok! Kimmy, let’s run to the store and buy some game pieces! We�
 Donna:			Ok, let's try tug-of-war then.
 
 + Ok, I'll teach you how to play tug-of-war.
+-> rdchoices1
+
+=rdchoices1
+
++ You need a rope and a staircase.
+-> rdchoices2
+
++ You need a rope and a ribbon.
+~rscore += 1
+-> rdchoices2
+
++ You need a rope and puddles.
+-> rdchoices2
+
+=rdchoices2
+
++ Then, you each hold one end of the rope on the different side of the puddle.
+-> rdchoices3
+
++ Then, you each hold one end of the rope, one at the top of the stairs and one at the bottom.
+-> rdchoices3
+
++ Then, tie a ribbon around the the middle of the rope, and mark the ground with two parallel goal lines.
+~rscore += 1
+-> rdchoices3
+
+=rdchoices3
+
++ Now you each hold one end of the rope, and tug as hard as you can.
+~rscore += 1
+-> rdchoices4
+
++ Now, you try to pull each other into the puddle using the rope.
+-> rdchoices4
+
++ Now, the friend at the bottom of the stairs ties the rope around their waist.
+-> rdchoices4
+
+=rdchoices4
+
++ you win if you can pull the rope's ribbon across your side, where the marking closest to you.
+~rscore += 1
+-> rdchoices5
+
++ you win if you can pull the other friend to the top of the stairs using the rope.
+-> rdchoices5
+
++ you win if you can pull your friend into the puddle.
+-> rdchoices5
+
+=rdchoices5
+
+{rscore == 4: -> success }
+
+{~That doesn't sound right...|That sounds wrong, but ok!|Really? Are you sure you know how to play?}
+
+~rscore = 0
+
+->game
+
+= success
+{~Ok, that makes sense!|Sure!|Sounds right to me!}
+
++ [One hour later...]
+->dhappy
+
+=dhappy
+Donna:			Kimmy loved that.
+Donna:			I’m surprised, normally you’re so quiet Kimmy.
+Kimmy:			Mom said it’s ok to be quiet.
+Dana:			That’s right! Games are a nice way to talk and play with your friends though, don’t you think? Even quiet kids like games, I think, usually.
+Kimmy:			… Are we friends? I thought you were my babysitter.
+Dana:			Yes! Of course we’re friends! I know we just met yesterday, but… that’s normal!
+Kimmy:			I always thought babysitters were more like parents.
+Dana:			I can be your friend AND your babysitter. We’re having fun playing games together, right? That’s what friends do a lot of the time.
+Dana:			Anthony and I became friends by playing games together. We met playing kickball.
+Donna:			Anthony and his little sister Amber are… annoying. Don’t tell them I said that though…
+Dana:			Really? Anthony and I go to the same school and do sports together sometimes. He’s way nicer than the other boys at my school. I like him and Amber.
+Donna:			There’s no rule that says you have to like your classmates.
+Dana:			Yeah, I know… but Anthony is nice to me, so I like him.
+Donna:			Oooh, you like... Like him?
+Dana:			…I’m not going to answer that, Donna. Who I like is none of your business.
+Donna:			...Are you gonna walk to Jordan Marsh? That’s where my babysitter used to take me.
+Dana:			Maybe! Kimmy doesn't seem to know too many people around town though, so I think we should save big trips for later.
+Donna:			Playing is fine, but isn’t it boring sometimes? I need more friends  who will go with me to Jordan Marsh. I like going shopping there. I hide in the clothes racks sometimes.
+Kimmy:			Dad took me there once. He needed a new leather jacket. But then he bought another new guitar and mom got mad when we came home.
+Dana:			Haha, your dad is so weird.
+Donna:			I don’t see your dad around much anymore, but I guess that’s because I’m not out on the porch like I used to be.
+Kimmy:			Donna used to be in a harness outside, like me.
+Donna:			Yeah I used to wear a harness attached to the front door when my mom was cooking or doing laundry. It was so embarrassing.
+Donna:			My mom said I’m too big for the harness. I go bike riding a lot now. I went by myself to Jordan Marsh yesterday and got these ears…
+Kimmy:			I like them.
+Dana:			I like riding my bike to Jordan Marsh too! Sometimes I’ll buy a ribbon if I save up.
+Kimmy:			I’ve never worn a ribbon.
+Dana:			Wow! Really? I can get you one, Kimmy, don’t worry.
+Kimmy:			No thank you, I’m not supposed to spend any money. I don’t have any anyways.
+Dana:			I’ll save up and get you one!
+Donna:			Kimmy, you would look nice in a ribbon. Cat ears too probably.
+Kimmy:			…Maybe.
+
+->endgame
+
+=endgame
+Dana:			Wasn't that fun, Kimmy!
+Kimmy:			Y-yes…
+Dana:			I think this deserves a sticker. You did a good job! We're gonna keep making you lots of friends...!
+
++ [1 hour later...]
+->Khouse
+
 
 = home
-the
+You are standing outside your house.
+
++ [Back to map]
+-> choices
 
 = downtown
+You are downtown.
 
-you are downtown
++ [Back to map]
+-> choices
+
 
 = playground
+you are at the playground.
 
-you are at the playground
++ [Back to map]
+-> choices
 
 ->DONE
