@@ -9,11 +9,10 @@ VAR pencilandpaper = 0.03
 
 Returning home after picking up Kimmy, you converse with your mother
 
-+ [Talk to Mom]
++ [Mom! Look! God sent me a baby!]
 -> Mom1
 
 = Mom1
-Dana:			Mom! Look! God sent me a baby!
 Mom:			...Excuse me?
 Dana:			Her name is Kimmy!
 Kimmy:			...
@@ -43,7 +42,10 @@ Dana:			Yes! I’d love to be friends, Kimmy. Can I come by and play with you to
 KimmyMom:			I’ve been looking for a babysitter, actually. Her grandma was helping with that before, but she… well, she can’t anymore.
 KimmyMom:			Kimmy’s normally alright in her harness on the porch, but she’s getting a little old for that…
 KimmyMom:			If you’d like to play with Kimmy tomorrow, I’d be happy to pay you a quarter to keep an eye on her.
-Dana:			Wow! Yes, please! I’d love to!
++ [Wow! Yes, please! I’d love to!]
+-> yes
+
+= yes
 KimmyMom:			My work schedule is a little… hectic. It’d be great to have you by in the morning.
 Dana:			I’ll be here first thing! Wow, I didn’t expect to land a job today. Thanks so much!
 Mom:			Well, that all sounds good to me. A summer job will be a nice way to keep busy. Now then, let’s leave this nice family to their dinner.
@@ -84,6 +86,9 @@ You are standing outside Kimmy's house.
 -> choices
 
 =store
+
+{store == 1: -> clerk }
+
 The store has a wonderful selection of toys
 Money = ${money}
 {rope == 0:Rope = ${ropec}}
@@ -92,27 +97,22 @@ Money = ${money}
 {ball == 0:Ball = ${ballc}}
 {chalk == 0:Chalk = ${chalkc}}
 
-
-
-+ {not clerk}[Speak to the clerk]
-->clerk
-
-+ {not rope}[buy rope]
++ {not rope}[Buy rope]
 -> rope
 
-+ {not frisbee}[buy frisbee]
++ {not frisbee}[Buy frisbee]
 -> frisbee
 
-+ {not dice}[buy dice]
++ {not dice}[Buy dice]
 -> dice
 
-+ {not ball}[buy ball]
++ {not ball}[Buy ball]
 -> ball
 
-+ {not chalk}[buy chalk]
++ {not chalk}[Buy chalk]
 -> chalk
 
-+ [leave]
++ [Leave]
 -> leavedean
 
 =clerk
@@ -131,6 +131,7 @@ Dean:			They do, Kimmy, they do. I make sweaters, dresses, hats--you name it.
 Dana:			You should sell your clothes at Jordan Marsh! That’s where I always find the nicest clothes.
 Dean:			Hah! That’s a long ways off for me. But maybe someday… anyways, what can I get for ya?
 
++ [Look around]
 ->store
 
 =rope
@@ -287,14 +288,22 @@ Dana:			Anthony and I became friends by playing games together. We met playing k
 Donna:			Anthony and his little sister Amber are… annoying. Don’t tell them I said that though…
 Dana:			Really? Anthony and I go to the same school and do sports together sometimes. He’s way nicer than the other boys at my school. I like him and Amber.
 Donna:			There’s no rule that says you have to like your classmates.
-Dana:			Yeah, I know… but Anthony is nice to me, so I like him.
+
++ [Yeah, I know… but Anthony is nice to me, so I like him.]
+->like
+
+=like
 Donna:			Oooh, you like... Like him?
 Dana:			…I’m not going to answer that, Donna. Who I like is none of your business.
 Donna:			...Are you gonna walk to Jordan Marsh? That’s where my babysitter used to take me.
 Dana:			Maybe! Kimmy doesn't seem to know too many people around town though, so I think we should save big trips for later.
 Donna:			Playing is fine, but isn’t it boring sometimes? I need more friends  who will go with me to Jordan Marsh. I like going shopping there. I hide in the clothes racks sometimes.
 Kimmy:			Dad took me there once. He needed a new leather jacket. But then he bought another new guitar and mom got mad when we came home.
-Dana:			Haha, your dad is so weird.
+
++ [Haha, your dad is so weird.]
+->weird
+
+=weird
 Donna:			I don’t see your dad around much anymore, but I guess that’s because I’m not out on the porch like I used to be.
 Kimmy:			Donna used to be in a harness outside, like me.
 Donna:			Yeah I used to wear a harness attached to the front door when my mom was cooking or doing laundry. It was so embarrassing.
@@ -308,6 +317,7 @@ Dana:			I’ll save up and get you one!
 Donna:			Kimmy, you would look nice in a ribbon. Cat ears too probably.
 Kimmy:			…Maybe.
 
++ [Leave Donna]
 ->endgame
 
 =endgame
