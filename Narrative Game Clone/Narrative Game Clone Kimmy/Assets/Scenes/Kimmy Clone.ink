@@ -13,21 +13,21 @@ Returning home after picking up Kimmy, you converse with your mother
 -> Mom1
 
 = Mom1
-Mom:			...Excuse me?
-Dana:			Her name is Kimmy!
-Kimmy:			...
-Mom:			That… No, Dana. God did not send you a baby.
+Mom:			...Excuse me? #mom #2 #3    
+Dana:			Her name is Kimmy!#Dana
+Kimmy:			... #Kimmy
+Mom:			That… No, Dana. God did not send you a baby. #mom
 Dana:			What do you mean…? You said God sends people babies sometimes! You told me that.
-Mom:			Well… nevermind what I said. It doesn’t apply to you. God isn’t about to send you a baby anytime soon, trust me.
+Mom:			Well… nevermind what I said. It doesn’t apply to you. God isn’t about to send you a baby anytime soon, trust me. #mom
 Dana:			What! Why? I wished for a baby, and he granted my wish. Isn’t it obvious?
-Mom:			Where did you find this little girl? Honey, where’s your house?
+Mom:			Where did you find this little girl? Honey, where’s your house? #mom
 Kimmy:			...
-Mom:			Kimmy, can you tell me where your parents are?
+Mom:			Kimmy, can you tell me where your parents are? #mom
 Kimmy:			I can go home later if I want…
 Dana:			Well maybe God didn’t send her, but she came out of nowhere! Kimmy, you just… appeared, right? Where did you come from?
 Kimmy:			Ferry Street... I untied myself from the porch so I could go for a walk…
 Dana:			...
-Mom:			It’s ok dear, let’s go to your house Kimmy… you said it’s on Ferry Street? Your parents are probably worried.
+Mom:			It’s ok dear, let’s go to your house Kimmy… you said it’s on Ferry Street? Your parents are probably worried. #mom
 
 + [Drop Kimmy off at her house]
 -> returnhome
@@ -326,7 +326,7 @@ Kimmy:			Y-yes…
 Dana:			I think this deserves a sticker. You did a good job! We're gonna keep making you lots of friends...!
 
 + [1 hour later...]
-->Khouse
+->END
 
 
 = home
@@ -346,6 +346,6 @@ You are downtown.
 you are at the playground.
 
 + [Back to map]
--> choices
+-> choices  
 
-->DONE
+->DONE                                                                              

@@ -13,7 +13,7 @@ Returning home after picking up Kimmy, you converse with your mother
 -> Mom1
 
 = Mom1
-Mom:			...Excuse me?
+Mom:			...Excuse me? #mom
 Dana:			Her name is Kimmy!
 Kimmy:			...
 Mom:			That… No, Dana. God did not send you a baby.
@@ -326,7 +326,7 @@ Kimmy:			Y-yes…
 Dana:			I think this deserves a sticker. You did a good job! We're gonna keep making you lots of friends...!
 
 + [1 hour later...]
-->Khouse
+->END
 
 
 = home

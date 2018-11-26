@@ -4,7 +4,16 @@ using System.Collections;
 using Ink.Runtime;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
-public class BasicInkExample : MonoBehaviour {
+public class BasicInkExample : MonoBehaviour
+{
+
+	public GameObject background;
+	public GameObject bg2;
+	public GameObject bg3;
+	public Sprite wh;
+	public Sprite kris;
+	public Sprite kim;
+	public Sprite kourtney;
 	
 	void Awake () {
 		// Remove the default message
@@ -33,6 +42,24 @@ public class BasicInkExample : MonoBehaviour {
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
+//			for (int i = 0; i < story.currentTags.Count; i++)
+//			{
+//				Debug.Log(i);
+//			}
+
+			if (story.currentTags.Count == 0)
+			{
+				Debug.Log("mom");	
+				bg3.GetComponent<SpriteRenderer>().sprite = wh;
+			}
+
+			else //(story.currentTags.Count == 3)
+			{
+				background.GetComponent<SpriteRenderer>().sprite = kris;
+				bg2.GetComponent<SpriteRenderer>().sprite = kourtney;
+
+			}		
+	
 		}
 
 		// Display all the choices, if there are any!
