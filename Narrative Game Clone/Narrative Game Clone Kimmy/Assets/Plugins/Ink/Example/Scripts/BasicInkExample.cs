@@ -47,18 +47,27 @@ public class BasicInkExample : MonoBehaviour
 //				Debug.Log(i);
 //			}
 
-			if (story.currentTags.Count == 0)
+			foreach (string str in story.currentTags)
 			{
-				Debug.Log("mom");	
-				bg3.GetComponent<SpriteRenderer>().sprite = wh;
+				Debug.Log(str);
+				if (str == "mom")
+					Debug.Log("works");
+					bg3.GetComponent<SpriteRenderer>().sprite = wh;
+
 			}
 
-			else //(story.currentTags.Count == 3)
+			if (story.currentTags.Count == 0)
 			{
-				background.GetComponent<SpriteRenderer>().sprite = kris;
-				bg2.GetComponent<SpriteRenderer>().sprite = kourtney;
+				//Debug.Log("mom");	
+				//bg3.GetComponent<SpriteRenderer>().sprite = wh;
+			}
 
-			}		
+//			else //(story.currentTags.Count == 3)
+//			{
+//				background.GetComponent<SpriteRenderer>().sprite = kris;
+//				bg2.GetComponent<SpriteRenderer>().sprite = kourtney;
+//
+//			}		
 	
 		}
 

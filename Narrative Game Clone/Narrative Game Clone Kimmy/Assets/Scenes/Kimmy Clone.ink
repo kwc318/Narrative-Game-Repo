@@ -13,11 +13,11 @@ Returning home after picking up Kimmy, you converse with your mother
 -> Mom1
 
 = Mom1
-Mom:			...Excuse me? #mom #2 #3    
+Mom:			...Excuse me? #mom    
 Dana:			Her name is Kimmy!#Dana
 Kimmy:			... #Kimmy
 Mom:			That… No, Dana. God did not send you a baby. #mom
-Dana:			What do you mean…? You said God sends people babies sometimes! You told me that.
+Dana:			What do you mean…? You said God sends people babies sometimes! You told me that. #Dana
 Mom:			Well… nevermind what I said. It doesn’t apply to you. God isn’t about to send you a baby anytime soon, trust me. #mom
 Dana:			What! Why? I wished for a baby, and he granted my wish. Isn’t it obvious?
 Mom:			Where did you find this little girl? Honey, where’s your house? #mom
