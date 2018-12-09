@@ -3,16 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class start : MonoBehaviour {
+public class start : MonoBehaviour
+{
 
+	public GameObject fade;
+	public bool on;
+	public float timer;
+	public AudioSource begin;
+
+	
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+
+		on = false;
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+	{
+		if (on == true)
+		{
+			fading();
+		}
+
+
 	}
 	
 	void OnMouseEnter()
@@ -30,7 +46,19 @@ public class start : MonoBehaviour {
 	void OnMouseDown()
 	{
 		Debug.Log("next");
-		SceneManager.LoadScene("Kimmy");
+		//SceneManager.LoadScene("Kimmy");
+		fade.GetComponent<Animator>().Play("Fadeout");
+		on = true;
+		begin.Play();
+	}
+
+	void fading()
+	{
+		timer -= Time.deltaTime;
+		if (timer <= 0)
+		{
+			SceneManager.LoadScene("Kimmy");
+		}
 	}
 	
 }
