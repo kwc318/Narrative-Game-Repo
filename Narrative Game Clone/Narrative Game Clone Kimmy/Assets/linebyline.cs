@@ -22,12 +22,16 @@ public class linebyline : MonoBehaviour
 	public Sprite khloe;
 	public Sprite kylie;
 	public Sprite rob;
+	public Sprite clock;
 	public AudioSource ksound;
 	public AudioSource eme;
 	public AudioSource what;
 	public AudioSource thanks;
 	public AudioSource hey;
 	public AudioSource yeah;
+	public AudioSource sorry;
+	public AudioSource bye;
+	public Font bfont;
 
 	
 	[SerializeField] private TextAsset _inkJsonAsset;
@@ -306,6 +310,38 @@ public class linebyline : MonoBehaviour
 				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
 			}
 		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "sorry")
+			{
+				Debug.Log("sorry");
+				sorry.Play();
+				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
+			}
+		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "bye")
+			{
+				Debug.Log("bye");
+				bye.Play();
+				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
+			}
+		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "clock")
+			{
+				Debug.Log("clock");
+				bg3.GetComponent<SpriteRenderer>().sprite = clock;
+			}
+		}
 	}
 	
 	void OnClickChoiceButton(Choice choice)
@@ -515,6 +551,39 @@ public class linebyline : MonoBehaviour
 				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
 			}
 		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "sorry")
+			{
+				Debug.Log("sorry");
+				sorry.Play();
+				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
+			}
+		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "bye")
+			{
+				Debug.Log("bye");
+				bye.Play();
+				CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
+			}
+		}
+		
+		foreach (string str in _story.currentTags)
+		{
+
+			if (str == "clock")
+			{
+				Debug.Log("clock");
+				bg3.GetComponent<SpriteRenderer>().sprite = clock;
+			}
+		}
+		
 	}
 
 	void CreateContentView(string text)
@@ -543,6 +612,7 @@ public class linebyline : MonoBehaviour
 		// Gets the text from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text> ();
 		choiceText.text = text;
+		choiceText.font = bfont;
 
 		// Make the button expand to fit the text
 		HorizontalLayoutGroup layoutGroup = choice.GetComponent <HorizontalLayoutGroup> ();

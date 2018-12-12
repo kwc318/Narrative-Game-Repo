@@ -33,7 +33,7 @@ Mom:			It’s ok dear, let’s go to your house Kimmy… you said it’s on Ferr
 -> returnhome
 
 = returnhome 
-Dana:			I’m sorry… I thought God sent me a baby and I got so excited… #Danal #2 #kmom
+Dana:			I’m sorry… I thought God sent me a baby and I got so excited… #Danal #2 #kmom #sorry
 Kimmy's Mom:			Oh, don’t worry. Thank you for finding Kimmy and walking her home. What's your name, dear? #kmom #thanks
 Dana:			I’m Dana… 
 Kimmy's Mom:			I don’t know many kids as responsible as you, walking Kimmy all the way home. I hope you two can be friends. I know Kimmy could learn a lot from you.
@@ -52,7 +52,7 @@ Mom:			Well, that all sounds good to me. A summer job will be a nice way to keep
 Dana:			Ok. Bye bye Kimmy, and Mrs...?
 Kimmy's Mom:			Mrs. Munro. Again, thank you for giving Kimmy a hand. It was nice meeting you, Mrs. Navarro. #thanks
 Mom:			Likewise.
-Kimmy:			Bye bye.
+Kimmy:			Bye bye. #bye
 
 + [Leave Kimmy's house]
 -> leave
@@ -66,14 +66,14 @@ You return home to a peaceful night of rest. The next morning, your return to Ki
 = choices
 You think about where to go next #black #maps
 
-+ [Go home]
-->home
+//+ [Go home]
+//->home
 + [Go to Kimmy's house]
 -> Khouse
-+ [Go downtown]
--> downtown
-+ [Go to playground]
--> playground
+//+ [Go downtown]
+//-> downtown
+//+ [Go to playground]
+//-> playground
 
 = Khouse
 You are standing outside Kimmy's house. #black #2 #Donna
@@ -166,7 +166,7 @@ You bought the chalk #yeah
 
 =leavedean
 
-Dana:			Thanks, Dean!
+Dana:			Thanks, Dean! #bye
 Kimmy:			Thank you Mr. Dean! #Kimmyl
 Dean:			Bye bye girls. Have fun. #hey
 
@@ -194,7 +194,7 @@ Donna:			Oh, thanks. They’re new. Anyways, I wanna play a new game.
 -> game
 
 =nogame
-Dana:			Oh no! I’m sorry… I thought I had some stuff to play games with in my bag… but it looks like I ran out. #Danal
+Dana:			Oh no! I’m sorry… I thought I had some stuff to play games with in my bag… but it looks like I ran out. #Danal #sorry
 Kimmy:			Oh no... #Kimmy
 Dana:			It’s ok! Kimmy, let’s run to the store and buy some game pieces! We’ll be right back!
 
@@ -267,7 +267,7 @@ Donna:			Ok, let's try tug-of-war then.
 = success
 {~Ok, that makes sense!|Sure!|Sounds right to me!} #yeah
 
-+ [One hour later...] #black
++ [One hour later...] #black #clock
 ->dhappy
 
 =dhappy
@@ -310,7 +310,7 @@ Dana:			Wow! Really? I can get you one, Kimmy, don’t worry.
 Kimmy:			No thank you, I’m not supposed to spend any money. I don’t have any anyways.
 Dana:			I’ll save up and get you one!
 Donna:			Kimmy, you would look nice in a ribbon. Cat ears too probably. #Donna
-Kimmy:			…Maybe.
+Kimmy:			…Maybe. #bye
 
 + [Leave Donna]
 ->endgame
@@ -320,7 +320,7 @@ Dana:			Wasn't that fun, Kimmy! #Dana
 Kimmy:			Y-yes…
 Dana:			I think this deserves a sticker. You did a good job! We're gonna keep making you lots of friends...!
 
-+ [1 hour later...] #black
++ [1 hour later...] #black #clock
 ->Khouse
 
 
